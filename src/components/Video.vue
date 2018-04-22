@@ -1,5 +1,6 @@
 <template>
-  <div class='video-result'>
+  <div class='video-result'
+       @click="onClick">
     <div class='video-result-thumbnail'>
       <img :src="video.snippet.thumbnails.high.url">
     </div>
@@ -22,6 +23,15 @@ export default {
   filters: {
     utcDate: value => new Date(value).toLocaleString(),
   },
+  methods: {
+    onClick() {
+      console.log(this.video)
+      // this.$router.push({
+      // path: "http://www.youtube.com/watch?v=" + this.video.id,
+      // })
+      window.location.href = "http://youtube.com/watch?v=" + this.video.id
+    },
+  },
 }
 </script>
 
@@ -33,6 +43,11 @@ export default {
   border: 1px solid rgba(0, 0, 0, 0.8);
   border-radius: 5px;
   margin-top: 1rem;
+  transition: 150ms;
+}
+
+.video-result:hover {
+  transform: translateX(5px);
 }
 
 .video-result:hover {
