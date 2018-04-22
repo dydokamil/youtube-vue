@@ -1,17 +1,21 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div class='container'
+       id="app">
+    <h1>YouVube</h1>
+    <Search></Search>
+    <Videos></Videos>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue"
+import Search from "./components/Search.vue"
+import Videos from "./components/Videos.vue"
 
 export default {
   name: "app",
   components: {
-    HelloWorld,
+    Search,
+    Videos,
   },
 }
 </script>
@@ -23,6 +27,26 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
 }
 </style>
