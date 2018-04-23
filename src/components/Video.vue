@@ -48,7 +48,7 @@ export default {
   display: flex;
   align-content: center;
   /* align-items: center; */
-  border: 1px solid rgba(0, 0, 0, 0.8);
+  border: 1px solid #e3e3e3;
   border-radius: 5px;
   margin-top: 1rem;
   transition: 150ms;

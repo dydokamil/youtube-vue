@@ -27,9 +27,10 @@ export default {
 #searchForm input {
   border-radius: 5px;
   padding: 0.5rem 0.5rem;
-  border: 1px solid #2c3e50;
+  border: 1px solid #e3e3e3;
   transition: 150ms;
   width: 50%;
+
   /* box-shadow: 1px 1px rgb(0, 0, 0, 0.2); */
 }
 
