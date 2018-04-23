@@ -29,7 +29,7 @@ export default {
 }
 .slide-enter-active,
 .slide-leave-active {
-  transition: all 1s;
+  transition: all 150ms;
 }
 .slide-enter,
 .slide-leave-to {

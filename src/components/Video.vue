@@ -1,36 +1,44 @@
 <template>
-  <div class='video-result'
-       @click="onClick">
-    <div class='video-result-thumbnail'>
-      <img :src="video.snippet.thumbnails.high.url">
-    </div>
-    <div class='video-result-info'>
-      <div class='video-result-title'>{{ video.snippet.title }}</div>
-      <div>{{ video.snippet.description }}</div>
-      <div>
-        <small>{{ video.snippet.channelTitle }}</small>
+  <div>
+    <div class='video-result'
+         @click="showPlayer = !showPlayer">
+      <div class='video-result-thumbnail'>
+        <img :src="video.snippet.thumbnails.high.url">
+      </div>
+      <div class='video-result-info'>
+        <div class='video-result-title'>{{ video.snippet.title }}</div>
+        <div>{{ video.snippet.description }}</div>
         <div>
-          <small>{{ video.snippet.publishedAt | utcDate }}</small>
+          <small>{{ video.snippet.channelTitle }}</small>
+          <div>
+            <small>{{ video.snippet.publishedAt | utcDate }}</small>
+          </div>
         </div>
       </div>
     </div>
+    <VideoPlayer v-if="showPlayer"
+                 :src="video.id"></VideoPlayer>
   </div>
 </template>
 
 <script>
+import VideoPlayer from "./VideoPlayer.vue"
+
 export default {
   props: ["video"],
+  data: () => ({
+    showPlayer: false,
+  }),
   filters: {
     utcDate: value => new Date(value).toLocaleString(),
   },
   methods: {
     onClick() {
-      console.log(this.video)
-      // this.$router.push({
-      // path: "http://www.youtube.com/watch?v=" + this.video.id,
-      // })
-      window.location.href = "http://youtube.com/watch?v=" + this.video.id
+      this.showPlayer = true
     },
+  },
+  components: {
+    VideoPlayer,
   },
 }
 </script>
